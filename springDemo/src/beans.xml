@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- bean的作用域：singleton、prototype
+	
+			singleton:  Spring IoC容器  只创建一个实例
+			example:
+				<bean id="..." class="..." scope="singleton">
+   						 collaborators and configuration for this bean go here
+				</bean>
+			*****************************************************	
+			prototype: 每次都创建一个实例
+			example：
+				<bean id="..." class="..." scope="prototype">
+  					 collaborators and configuration for this bean go here
+				</bean>
+	 -->
+	 
+  <!--  <bean id="helloWorld" class="com.teaegg.HelloWorld" scope="prototype">
+       <property name="message" value="Hello World!"/>
+   </bean> -->
+   
+<!-- *********************************init-method 、destroy-method*********************************************** -->	
+   <!-- <bean id="helloWorld" class="com.teaegg.HelloWorld" init-method="init" destroy-method="destroy">
+       <property name="message" value="Hello World!"/>
+   </bean> 
+   
+   <bean class="com.teaegg.InitHelloWorld" /> -->
+   
+<!-- ********************************bean继承************************************************ -->	  
+  <!--  <bean id="helloWorld" class="com.teaegg.HelloWorld">
+   		<property name="message1" value="Hello World!"/>
+        <property name="message2" value="Hello Second World!"/>
+   </bean>
+   
+   <bean id="helloIndia" class="com.teaegg.HelloIndia" parent="helloWorld">
+   		 <property name="message1" value="Hello India!"/>
+         <property name="message3" value="Namaste India!"/>
+   </bean> -->
+   
+   <bean id="textEditor" class="com.teaegg.TextEditor">
+   		<property name="spellChecker">
+   			<bean id="spellChecker" class="com.teaegg.SpellChecker" />
+   		</property>
+   </bean>
+</beans>
