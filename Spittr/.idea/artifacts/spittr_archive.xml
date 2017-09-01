@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spittr archive">
+    <output-path>$PROJECT_DIR$/classes/artifacts/spittr_archive</output-path>
+    <root id="archive" name="spittr archive.war">
+      <element id="artifact" artifact-name="spittr" />
+    </root>
+  </artifact>
+</component>

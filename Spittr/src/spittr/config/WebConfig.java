@@ -8,9 +8,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * 该配置在《spring action第4版》141页
+ */
 @Configuration
-@EnableWebMvc    //启用SpringMVC
-@ComponentScan("spittr.web")   //启用组件扫描
+@EnableWebMvc    //启用SpringMVC 等同于 <mvc:annotation-driven />
+@ComponentScan("spittr.web")   //启用组件扫描 等同于 <context:component-scan base-package="" />
 public class WebConfig extends WebMvcConfigurerAdapter{
 
     public ViewResolver viewResolver(){
@@ -21,6 +24,10 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         return resolver;
     }
 
+    /**
+     * 等同于 <mvc:default-servlet-handler />
+     * @param configurer
+     */
     @Override
     public void configureDefaultServletHandling(
             DefaultServletHandlerConfigurer configurer) { //配置静态资源的处理
